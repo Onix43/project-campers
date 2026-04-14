@@ -2,7 +2,6 @@ import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,9 +21,7 @@ export default function Home() {
           <p className={styles.description}>
             You can find everything you want in our catalog
           </p>
-          <Button>
-            <Link href="/catalog">View Now</Link>
-          </Button>
+          <Button href="/catalog">View Now</Button>
         </div>
       </div>
     </div>

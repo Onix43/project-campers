@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "modern-normalize";
+import Header from "@/components/Header/Header";
+import css from "./Catalog.module.css";
 
 export const metadata: Metadata = {
   title: "Campers",
@@ -8,8 +10,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  sidebar,
 }: Readonly<{
   children: React.ReactNode;
+  sidebar: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      <div className={css.page}>
+        <aside className={css.sidebar}>{sidebar}</aside>
+        <>{children}</>
+      </div>
+    </>
+  );
 }

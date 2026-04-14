@@ -1,0 +1,95 @@
+.text {
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 1.5;
+  color: #6c717b;
+  padding-bottom: 8px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+.filterGroup {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 8px;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 8px;
+}
+.radioLabel {
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+
+  line-height: 1.5;
+  color: var(--color-black);
+
+  display: flex;
+  gap: 8px;
+}
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.customRadio {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #475467;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+  flex-shrink: 0;
+}
+.customRadio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-green);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+.hiddenInput:checked + .customRadio {
+  border-color: var(--color-dark-green);
+}
+.hiddenInput:checked + .customRadio::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.labelContent {
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 1.5;
+  color: var(--color-black);
+}
+.fullWidth {
+  width: 312px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.closeIcon {
+  width: 24px;
+  height: 24px;
+}

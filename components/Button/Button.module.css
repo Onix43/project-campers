@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 10px;
+  gap: 4px;
 
   font-weight: 500;
   font-size: 16px;
@@ -14,13 +14,25 @@
 
   border-radius: 200px;
   padding: 16px 48px;
-  width: 173px;
+  min-width: 173px;
   height: 56px;
   border: none;
   cursor: pointer;
-  background-color: var(--color-orange);
+}
+.green {
+  background-color: var(--color-green);
   transition: background-color 0.2s ease;
 }
-.button:hover {
-  background-color: var(--color-red);
+.green:hover {
+  background-color: var(--color-dark-green);
+}
+.white {
+  color: #101828;
+
+  background-color: #fff;
+  border: 1px solid #dadde1;
+  transition: border 0.2s ease;
+}
+.white:hover {
+  border: 1px solid var(--color-dark-green);
 }
