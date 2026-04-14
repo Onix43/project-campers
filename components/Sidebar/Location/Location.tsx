@@ -1,3 +1,4 @@
+"use client";
 import { CiMap } from "react-icons/ci";
 import css from "./Location.module.css";
 
@@ -7,7 +8,12 @@ export default function Location() {
       <h3 className={css.title}>Location</h3>
       <div className={css.inputWrapper}>
         <CiMap className={css.icon} />
-        <input type="text" placeholder="Kyiv, Ukraine" className={css.input} />
+        <input
+          type="text"
+          placeholder="Kyiv, Ukraine"
+          className={css.input}
+          name="location"
+        />
       </div>
     </div>
   );

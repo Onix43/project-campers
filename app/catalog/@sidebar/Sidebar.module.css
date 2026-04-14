@@ -4,4 +4,11 @@
 
   line-height: 1.2;
   color: var(--color-black);
+  margin-bottom: 24px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
 }

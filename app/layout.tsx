@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "modern-normalize";
 import TanStackProvider from "@/components/TanstackProvider/TanstackProvider";
+import Header from "@/components/Header/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <TanStackProvider>
-        <body className={`${inter.variable}`}>{children}</body>
+        <body className={`${inter.variable}`}>
+          <Header />
+          {children}
+        </body>
       </TanStackProvider>
     </html>
   );

@@ -1,16 +1,11 @@
+"use client";
 import Link from "next/link";
 import css from "./Header.module.css";
 import { Logo } from "../Logo/Logo";
+import { usePathname } from "next/navigation";
 
-// {
-//   params,
-// }: {
-//   params: Promise<{ id: string }>;
-// }
-
-export default async function Header() {
-  // const catalog = await params;
-  // console.log(catalog);
+export default function Header() {
+  const pathname = usePathname();
   return (
     <header className={css.header}>
       <div className={css.logo}>
@@ -26,7 +21,10 @@ export default async function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/catalog" className={css.navLink}>
+            <Link
+              href="/catalog"
+              className={`${css.navLink} ${pathname === "/catalog" ? css.activeLink : ""}`}
+            >
               Catalog
             </Link>
           </li>

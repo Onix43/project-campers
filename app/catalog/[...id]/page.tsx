@@ -4,9 +4,15 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import CatalogClient from "./Catalog.client";
+import CarClientClient from "./CarDeatils.client";
 
-export default async function Catalog() {
+export default async function Catalog({
+  params,
+}: {
+  params: Promise<{ id: string[] }>;
+}) {
+  const id = await params;
+  console.log(id);
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -16,7 +22,7 @@ export default async function Catalog() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <CatalogClient />
+      <CarClientClient />
     </HydrationBoundary>
   );
 }

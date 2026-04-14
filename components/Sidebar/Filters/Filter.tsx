@@ -22,10 +22,13 @@ const filters = [
   },
 ];
 
-export default function Filter() {
-  const handleSubmit = (formData: FormData) => {};
+interface FilterProps {
+  onClear: () => void;
+}
+
+export default function Filter({ onClear }: FilterProps) {
   return (
-    <form action={handleSubmit} className={css.form}>
+    <>
       {filters.map((group) => (
         <fieldset key={group.name} className={css.filterGroup}>
           <legend className={css.text}>{group.title}</legend>
@@ -36,7 +39,7 @@ export default function Filter() {
                 <input
                   type="radio"
                   name={group.name}
-                  value={option.toLowerCase().replace(" ", "-")}
+                  value={option.toLowerCase()}
                   className={css.hiddenInput}
                 />
                 <span className={css.customRadio}></span>
@@ -51,11 +54,16 @@ export default function Filter() {
         <Button type="submit" className={css.fullWidth}>
           Search
         </Button>
-        <Button color="white" className={css.fullWidth}>
+        <Button
+          type="reset"
+          color="white"
+          className={css.fullWidth}
+          onClick={onClear}
+        >
           <IoMdClose className={css.closeIcon} />
           Clear Filters
         </Button>
       </div>
-    </form>
+    </>
   );
 }

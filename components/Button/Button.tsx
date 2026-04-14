@@ -20,7 +20,7 @@ export default function Button({
 }: ButtonProps) {
   if (href) {
     return (
-      <Link href={href} className={css.button}>
+      <Link href={href} className={`${css.button} ${css.green}`}>
         {children}
       </Link>
     );

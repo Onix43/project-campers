@@ -1,14 +1,10 @@
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 import Image from "next/image";
-import { IoMdClose } from "react-icons/io";
 
 export default function Home() {
   return (
     <div className="container">
-      <header className={styles.emptyHeader}>
-        <IoMdClose className={styles.closeIcon} />
-      </header>
       <div className={styles.page}>
         <Image
           src="/hero-image.webp"

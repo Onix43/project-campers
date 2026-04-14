@@ -11,11 +11,10 @@
 
   background: #f7f7f7;
   margin: 0 65px;
-  height: 800px;
+  height: 840px;
 }
 .grid {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 24px;

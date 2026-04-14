@@ -18,6 +18,8 @@ export default function CarArticle({ car }: CarArticleProps) {
           src={car.gallery[0].thumb}
           alt={car.name}
           fill
+          sizes="100 vw"
+          loading="eager"
           className={css.img}
         />
       </div>

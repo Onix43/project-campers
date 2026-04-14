@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "modern-normalize";
-import Header from "@/components/Header/Header";
 import css from "./Catalog.module.css";
 
 export const metadata: Metadata = {
@@ -17,7 +16,6 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Header />
       <div className={css.page}>
         <aside className={css.sidebar}>{sidebar}</aside>
         <>{children}</>
