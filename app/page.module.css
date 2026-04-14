@@ -1,0 +1,51 @@
+.page {
+  position: relative;
+  width: 1440px;
+  height: 696px;
+}
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.emptyHeader {
+  height: 72px;
+}
+.closeIcon {
+  width: 24px;
+  height: 24px;
+}
+.textBlock {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+
+  padding-left: 64px;
+  padding-top: 260px;
+}
+.picture {
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.header {
+  font-weight: 600;
+  font-size: 48px;
+
+  line-height: 0.66667;
+  color: var(--color-dirty-gray);
+}
+.description {
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.33333;
+  color: var(--color-dirty-gray);
+  padding-bottom: 24px;
+}
