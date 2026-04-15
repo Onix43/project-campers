@@ -1,0 +1,165 @@
+.reviewHeader {
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.33333;
+  color: #101828;
+  margin-bottom: 24px;
+}
+.bottomSection {
+  display: flex;
+  gap: 48px;
+}
+
+.formContainer {
+  border: 1px solid #dadde1;
+  border-radius: 16px;
+  padding: 44px 57px;
+  width: 641px;
+  height: 382px;
+}
+
+.formHeader {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 1.5;
+  color: #6c717b;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  position: relative;
+  width: 100%;
+  height: 58px;
+  padding: 18px;
+  background-color: #f7f7f7;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #101828;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input::placeholder {
+  color: rgba(16, 24, 40, 0.6);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  width: 100%;
+
+  padding: 16px 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.errorBorder {
+  border-color: #e44848;
+}
+
+.errorMsg {
+  position: absolute;
+  top: 58px;
+  left: 2px;
+  color: #e44848;
+  font-size: 12px;
+}
+
+.reviewList {
+  height: 384px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.reviewCard {
+  border-radius: 16px;
+  padding: 16px;
+  width: 623px;
+  height: 180px;
+
+  background: #f7f7f7;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+
+  font-weight: 600;
+  font-size: 24px;
+
+  line-height: 1.33333;
+  color: #829b91;
+  text-transform: uppercase;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.name {
+  font-weight: 500;
+  font-size: 16px;
+
+  line-height: 1.5;
+  color: #101828;
+}
+.starFilled {
+  color: var(--color-yellow);
+  width: 16px;
+  height: 16px;
+}
+.rating {
+  display: flex;
+  gap: 4px;
+}
+.starEmpty {
+  color: #dadde1;
+  width: 16px;
+  height: 16px;
+}
+.comment {
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 1.5;
+  color: #475467;
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-import { getCampers } from "@/lib/api/campresApi";
+import { getCamperById } from "@/lib/api/campresApi";
 import {
   dehydrate,
   HydrationBoundary,
@@ -11,13 +11,13 @@ export default async function Catalog({
 }: {
   params: Promise<{ id: string[] }>;
 }) {
-  const id = await params;
-  console.log(id);
+  const query = await params;
+  const id = query.id[0];
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryFn: () => getCampers({}),
-    queryKey: ["campers"],
+    queryFn: () => getCamperById(id),
+    queryKey: ["campers", id],
   });
 
   return (

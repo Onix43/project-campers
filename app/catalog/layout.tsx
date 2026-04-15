@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
 import "modern-normalize";
 import css from "./Catalog.module.css";
-
-export const metadata: Metadata = {
-  title: "Campers",
-  description: "Find your Camper van!",
-};
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
@@ -14,10 +11,14 @@ export default function RootLayout({
   children: React.ReactNode;
   sidebar: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isDetailsPage =
+    pathname.split("/").length > 2 && pathname.includes("/catalog/");
+
   return (
     <>
       <div className={css.page}>
-        <aside className={css.sidebar}>{sidebar}</aside>
+        {!isDetailsPage && <aside className={css.sidebar}>{sidebar}</aside>}
         <>{children}</>
       </div>
     </>

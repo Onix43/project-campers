@@ -19,7 +19,6 @@ export default function CarArticle({ car }: CarArticleProps) {
           alt={car.name}
           fill
           sizes="100 vw"
-          loading="eager"
           className={css.img}
         />
       </div>
@@ -64,7 +63,7 @@ export default function CarArticle({ car }: CarArticleProps) {
           </li>
         </ul>
 
-        <Button>Show more</Button>
+        <Button href={`/catalog/${car.id}`}>Show more</Button>
       </div>
     </article>
   );
