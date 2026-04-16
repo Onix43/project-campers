@@ -30,6 +30,7 @@ export default function CarClientClient() {
 
   return (
     <section className={css.grid}>
+      <h1 className={css.visuallyHidden}>{camper?.name}</h1>
       {camper && <CarDetails car={camper} />}
       {camper && reviews && (
         <CarReviews reviews={reviews} camperId={camper.id} />

@@ -15,22 +15,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const query = await params;
   const id = query.id;
 
-  const camper = await getCamperById(id);
+  try {
+    const camper = await getCamperById(id);
 
-  if (!camper) {
+    if (!camper) {
+      return {
+        title: "Camper Not Found | TravelTrucks",
+        description:
+          "Looking for a camper? Check our catalog for the best options.",
+      };
+    }
+
+    return {
+      title: camper?.name || "Camper Details",
+      description:
+        camper?.description?.slice(0, 160) || "Explore this amazing camper.",
+      openGraph: {
+        images: [camper?.gallery[0]?.original || ""],
+      },
+    };
+  } catch {
     return {
       title: "Camper Not Found | TravelTrucks",
+      description:
+        "Looking for a camper? Check our catalog for the best options.",
     };
   }
-
-  return {
-    title: camper?.name || "Camper Details",
-    description:
-      camper?.description?.slice(0, 160) || "Explore this amazing camper.",
-    openGraph: {
-      images: [camper?.gallery[0]?.original || ""],
-    },
-  };
 }
 
 export default async function Catalog({ params }: Props) {
@@ -40,7 +50,7 @@ export default async function Catalog({ params }: Props) {
 
   await queryClient.prefetchQuery({
     queryFn: () => getCamperById(id),
-    queryKey: ["campers", id],
+    queryKey: ["camper", id],
   });
 
   return (
