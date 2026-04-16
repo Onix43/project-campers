@@ -4,6 +4,8 @@ import "./globals.css";
 import "modern-normalize";
 import TanStackProvider from "@/components/TanstackProvider/TanstackProvider";
 import Header from "@/components/Header/Header";
+import { Suspense } from "react";
+import FullPageLoader from "@/components/FullPageLoader/FullPageLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,8 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Campers",
-  description: "Find your Camper van!",
+  title: "TravelTrucks",
+  description:
+    "Browse our extensive collection of campers. Find the perfect one for your journey.",
 };
 
 export default function RootLayout({
@@ -24,8 +27,10 @@ export default function RootLayout({
     <html lang="en">
       <TanStackProvider>
         <body className={`${inter.variable}`}>
-          <Header />
-          {children}
+          <Suspense fallback={<FullPageLoader />}>
+            <Header />
+            {children}
+          </Suspense>
         </body>
       </TanStackProvider>
     </html>

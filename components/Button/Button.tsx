@@ -8,6 +8,8 @@ interface ButtonProps {
   className?: string;
   color?: "green" | "white";
   onClick?: () => void;
+  disabled?: boolean;
+  isNewPage?: boolean;
 }
 
 export default function Button({
@@ -17,10 +19,17 @@ export default function Button({
   type,
   color,
   className,
+  disabled,
+  isNewPage,
 }: ButtonProps) {
   if (href) {
     return (
-      <Link href={href} className={`${css.button} ${css.green}`}>
+      <Link
+        href={href}
+        className={`${css.button} ${css.green} ${className}`}
+        target={isNewPage ? "_blank" : "_self"}
+        rel={isNewPage ? "noopener noreferrer" : undefined}
+      >
         {children}
       </Link>
     );
@@ -30,6 +39,7 @@ export default function Button({
       className={`${css.button} ${color === "white" ? css.white : css.green} ${className}`}
       onClick={onClick}
       type={type}
+      disabled={disabled ?? false}
     >
       {children}
     </button>

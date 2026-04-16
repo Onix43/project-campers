@@ -6,12 +6,15 @@ import css from "./CarReviews.module.css";
 import Button from "../Button/Button";
 import { postBooking } from "@/lib/api/campresApi";
 import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import FullPageLoader from "../FullPageLoader/FullPageLoader";
 
 interface CarReviewFormProps {
   camperId: string;
 }
 
 export default function CarReviewForm({ camperId }: CarReviewFormProps) {
+  const [loading, setLoading] = useState(false);
   const initialValues = {
     name: "",
     email: "",
@@ -19,6 +22,7 @@ export default function CarReviewForm({ camperId }: CarReviewFormProps) {
 
   const handleSubmit = async (values: any, { resetForm }: any) => {
     try {
+      setLoading(true);
       const toSend = {
         ...values,
         camperId,
@@ -29,12 +33,15 @@ export default function CarReviewForm({ camperId }: CarReviewFormProps) {
       });
     } catch {
       toast.error("Something went wrong, please try later");
+    } finally {
+      setLoading(false);
     }
     resetForm();
   };
 
   return (
     <section className={css.formContainer}>
+      {loading && <FullPageLoader />}
       <Toaster />
       <div className={css.formHeader}>
         <h3 className={css.title}>Book your campervan now</h3>

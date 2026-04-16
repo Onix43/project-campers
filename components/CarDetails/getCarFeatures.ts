@@ -22,7 +22,7 @@ export const formatCarValue = (value: string, key: string): string => {
   const formLabels: Record<string, string> = {
     fullyIntegrated: "Full Truck",
     alcove: "Alcove",
-    panelTruck: "Panel Truck",
+    panel_van: "Panel Truck",
   };
 
   if (key === "form" && formLabels[value]) {

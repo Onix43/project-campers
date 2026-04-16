@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { CiMap } from "react-icons/ci";
 import CarDetailsImages from "./CarDetailsImages";
 import CarDetailsList from "./CarDetailsList";
-import { formatCarValue } from "./getCarFeatures";
+import { formatCarValue, formatString } from "./getCarFeatures";
 import { CamperResponse } from "@/lib/api/campresApi";
 
 interface CarDetailsProps {
@@ -12,7 +12,7 @@ interface CarDetailsProps {
 
 export default function CarDetails({ car }: CarDetailsProps) {
   return (
-    <div className={css.carDeatilsPage}>
+    <section className={css.carDeatilsPage}>
       <div className={css.leftBlock}>
         <CarDetailsImages car={car} />
       </div>
@@ -44,7 +44,7 @@ export default function CarDetails({ car }: CarDetailsProps) {
           <ul className={css.detailsDescriptionWrapper}>
             <li className={css.detailsItem}>
               <span>Form</span>
-              <span>{formatCarValue(car.form, "form")}</span>
+              <span>{formatString(car.form)}</span>
             </li>
             <li className={css.detailsItem}>
               <span>Length</span>
@@ -69,6 +69,6 @@ export default function CarDetails({ car }: CarDetailsProps) {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

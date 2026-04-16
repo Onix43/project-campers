@@ -29,11 +29,11 @@ export default function CarClientClient() {
   });
 
   return (
-    <div className={css.grid}>
+    <section className={css.grid}>
       {camper && <CarDetails car={camper} />}
       {camper && reviews && (
         <CarReviews reviews={reviews} camperId={camper.id} />
       )}
-    </div>
+    </section>
   );
 }

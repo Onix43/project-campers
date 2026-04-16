@@ -28,3 +28,28 @@
 .detailsPage {
   justify-content: center;
 }
+
+.paginateButton {
+  font-weight: 500;
+  font-size: 16px;
+
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #101828;
+  padding: 16px 32px !important;
+
+  max-width: 146px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  justify-self: center;
+}
+.showMoreButton {
+  max-width: 173px;
+}
+.emptyMessage {
+  font-weight: 500;
+  font-size: 16px;
+
+  line-height: 1.33333;
+  color: #475467;
+}

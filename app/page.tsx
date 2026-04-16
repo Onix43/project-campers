@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className={styles.page}>
+    <main className="container">
+      <section className={styles.page}>
         <Image
           src="/hero-image.webp"
           className={styles.picture}
@@ -19,7 +19,7 @@ export default function Home() {
           </p>
           <Button href="/catalog">View Now</Button>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

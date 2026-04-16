@@ -10,7 +10,7 @@ interface CarReviewsProps {
 
 export default function CarReviews({ reviews, camperId }: CarReviewsProps) {
   return (
-    <div className={css.reviewBlock}>
+    <section className={css.reviewBlock}>
       <h2 className={css.reviewHeader}>Reviews</h2>
       <div className={css.bottomSection}>
         <ul className={css.reviewList}>
@@ -20,6 +20,6 @@ export default function CarReviews({ reviews, camperId }: CarReviewsProps) {
         </ul>
         <CarReviewForm camperId={camperId} />
       </div>
-    </div>
+    </section>
   );
 }

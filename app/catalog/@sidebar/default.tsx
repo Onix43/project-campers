@@ -5,12 +5,13 @@ import Location from "@/components/Sidebar/Location/Location";
 import Filter from "@/components/Sidebar/Filters/Filter";
 import css from "./Sidebar.module.css";
 import { getFilters } from "@/lib/api/campresApi";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function SideBar() {
   const router = useRouter();
   const pathname = usePathname();
   const formRef = useRef<HTMLFormElement>(null);
+  const queryClient = useQueryClient();
 
   const { data: filters } = useQuery({
     queryFn: () => getFilters(),
@@ -32,6 +33,7 @@ export default function SideBar() {
 
   const handleClear = () => {
     formRef.current?.reset();
+    queryClient.resetQueries({ queryKey: ["campers"] });
     router.push(pathname);
   };
 

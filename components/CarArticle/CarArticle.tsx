@@ -64,7 +64,13 @@ export default function CarArticle({ car }: CarArticleProps) {
           </li>
         </ul>
 
-        <Button href={`/catalog/${car.id}`}>Show more</Button>
+        <Button
+          href={`/catalog/${car.id}`}
+          className={css.showMoreButton}
+          isNewPage={true}
+        >
+          Show more
+        </Button>
       </div>
     </article>
   );

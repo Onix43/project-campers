@@ -57,6 +57,7 @@ interface postBookingResponse {
 }
 
 interface GetCampersProps {
+  page?: number;
   location?: string;
   form?: string;
   engine?: string;
@@ -78,7 +79,7 @@ export async function getCampers(
     ),
   );
   const response = await api.get<CampersResponse>("/campers", {
-    params: searchParams,
+    params: { ...searchParams, perPage: 4 },
   });
   return response.data;
 }
