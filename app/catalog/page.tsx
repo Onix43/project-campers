@@ -1,4 +1,4 @@
-import { getCampers } from "@/lib/api/campresApi";
+import { getCampers, getFilters } from "@/lib/api/campresApi";
 import {
   dehydrate,
   HydrationBoundary,
@@ -12,6 +12,10 @@ export default async function Catalog() {
   await queryClient.prefetchQuery({
     queryFn: () => getCampers({}),
     queryKey: ["campers"],
+  });
+  await queryClient.prefetchQuery({
+    queryFn: () => getFilters(),
+    queryKey: ["filters"],
   });
 
   return (

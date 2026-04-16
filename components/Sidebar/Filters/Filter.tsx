@@ -3,52 +3,45 @@
 import Button from "@/components/Button/Button";
 import css from "./Filter.module.css";
 import { IoMdClose } from "react-icons/io";
-
-const filters = [
-  {
-    title: "Camper form",
-    name: "form",
-    options: ["Alcove", "Panel Van", "Integrated", "Semi Integrated"],
-  },
-  {
-    title: "Engine",
-    name: "engine",
-    options: ["Diesel", "Petrol", "Hybrid", "Electric"],
-  },
-  {
-    title: "Transmission",
-    name: "transmission",
-    options: ["Automatic", "Manual"],
-  },
-];
+import { FilterResponse } from "@/lib/api/campresApi";
+import { formatString } from "@/components/CarDetails/getCarFeatures";
 
 interface FilterProps {
+  filters: FilterResponse;
   onClear: () => void;
 }
 
-export default function Filter({ onClear }: FilterProps) {
+export default function Filter({ onClear, filters }: FilterProps) {
+  const createMarkup = (filter: string[], filterName: string) => {
+    const normalizedFilter =
+      filterName === "Camper form"
+        ? filterName.split(" ")[1]
+        : filterName.toLowerCase();
+    return (
+      <fieldset className={css.filterGroup}>
+        <legend className={css.text}>{filterName}</legend>
+        <div className={css.optionsList}>
+          {filter.map((name, index) => (
+            <label key={index} className={css.radioLabel}>
+              <input
+                type="radio"
+                name={normalizedFilter}
+                value={name}
+                className={css.hiddenInput}
+              />
+              <span className={css.customRadio}></span>
+              <span className={css.labelContent}>{formatString(name)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    );
+  };
   return (
     <>
-      {filters.map((group) => (
-        <fieldset key={group.name} className={css.filterGroup}>
-          <legend className={css.text}>{group.title}</legend>
-
-          <div className={css.optionsList}>
-            {group.options.map((option) => (
-              <label key={option} className={css.radioLabel}>
-                <input
-                  type="radio"
-                  name={group.name}
-                  value={option.toLowerCase()}
-                  className={css.hiddenInput}
-                />
-                <span className={css.customRadio}></span>
-                <span className={css.labelContent}>{option}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-      ))}
+      {createMarkup(filters.forms, "Camper form")}
+      {createMarkup(filters.engines, "Engine")}
+      {createMarkup(filters.transmissions, "Transmission")}
 
       <div className={css.buttons}>
         <Button type="submit" className={css.fullWidth}>

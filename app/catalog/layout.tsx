@@ -17,7 +17,7 @@ export default function RootLayout({
 
   return (
     <>
-      <div className={css.page}>
+      <div className={`${css.page} ${isDetailsPage && css.detailsPage}`}>
         {!isDetailsPage && <aside className={css.sidebar}>{sidebar}</aside>}
         <>{children}</>
       </div>

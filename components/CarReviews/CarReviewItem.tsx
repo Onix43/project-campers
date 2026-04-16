@@ -1,11 +1,11 @@
 "use client";
-import { CarReview } from "@/types/car";
 import { BsStarFill } from "react-icons/bs";
 import css from "./CarReviews.module.css";
 import { getInitial } from "./reviewUtils";
+import { ReviewResponse } from "@/lib/api/campresApi";
 
 interface CarReviewItemProps {
-  review: CarReview;
+  review: ReviewResponse;
 }
 
 export default function CarReviewItem({ review }: CarReviewItemProps) {

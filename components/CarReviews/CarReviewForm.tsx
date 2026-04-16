@@ -24,7 +24,9 @@ export default function CarReviewForm({ camperId }: CarReviewFormProps) {
         camperId,
       };
       const respose = await postBooking(toSend);
-      toast.success(respose.message);
+      toast.success(respose.message, {
+        duration: 4000,
+      });
     } catch {
       toast.error("Something went wrong, please try later");
     }

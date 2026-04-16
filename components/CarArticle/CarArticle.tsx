@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import { FaStar } from "react-icons/fa";
 import { CiMap } from "react-icons/ci";
 import { BsFuelPump, BsFillCarFrontFill, BsDiagram3 } from "react-icons/bs";
+import { formatString } from "../CarDetails/getCarFeatures";
 
 interface CarArticleProps {
   car: Car;
@@ -15,7 +16,7 @@ export default function CarArticle({ car }: CarArticleProps) {
     <article className={css.card}>
       <div className={css.imageWrapper}>
         <Image
-          src={car.gallery[0].thumb}
+          src={car.coverImage}
           alt={car.name}
           fill
           sizes="100 vw"
@@ -36,7 +37,7 @@ export default function CarArticle({ car }: CarArticleProps) {
             <div className={css.rating}>
               <FaStar className={css.starIcon} />
               <span>
-                {car.rating} ({car.reviews.length} Reviews)
+                {car.rating} ({car.totalReviews} Reviews)
               </span>
             </div>
             <div className={css.location}>
@@ -59,7 +60,7 @@ export default function CarArticle({ car }: CarArticleProps) {
           </li>
           <li className={css.tag}>
             <BsFillCarFrontFill className={css.tagIcon} />
-            {car.form}
+            {formatString(car.form)}
           </li>
         </ul>
 

@@ -1,13 +1,13 @@
 import css from "./CarDetails.module.css";
 import { FaStar } from "react-icons/fa";
 import { CiMap } from "react-icons/ci";
-import { Car } from "@/types/car";
 import CarDetailsImages from "./CarDetailsImages";
 import CarDetailsList from "./CarDetailsList";
 import { formatCarValue } from "./getCarFeatures";
+import { CamperResponse } from "@/lib/api/campresApi";
 
 interface CarDetailsProps {
-  car: Car;
+  car: CamperResponse;
 }
 
 export default function CarDetails({ car }: CarDetailsProps) {
@@ -24,7 +24,7 @@ export default function CarDetails({ car }: CarDetailsProps) {
             <div className={css.rating}>
               <FaStar className={css.starIcon} />
               <span>
-                {car.rating} ({car.reviews.length} Reviews)
+                {car.rating} ({car.totalReviews} Reviews)
               </span>
             </div>
             <div className={css.location}>

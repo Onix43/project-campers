@@ -1,11 +1,11 @@
 "use client";
-import { Car } from "@/types/car";
 import Image from "next/image";
 import { useState } from "react";
 import css from "./CarDetails.module.css";
+import { CamperResponse } from "@/lib/api/campresApi";
 
 interface CarDetailsImagesProps {
-  car: Car;
+  car: CamperResponse;
 }
 
 export default function CarDetailsImages({ car }: CarDetailsImagesProps) {

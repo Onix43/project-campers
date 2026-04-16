@@ -15,7 +15,7 @@ export default function CatalogClient() {
     transmission: searchParams.get("transmission") || undefined,
   };
 
-  const { data, isError } = useQuery({
+  const { data } = useQuery({
     queryFn: () => getCampers(filters),
     queryKey: ["campers", filters],
     refetchOnMount: false,
@@ -24,8 +24,8 @@ export default function CatalogClient() {
   return (
     <ul className={css.grid}>
       {data &&
-        data.items.map((item) => <CarArticle key={item.id} car={item} />)}
-      {isError && !data && (
+        data.campers.map((item) => <CarArticle key={item.id} car={item} />)}
+      {data && data.campers.length === 0 && (
         <p>Sorry, there is no campers matching your filter settings!</p>
       )}
     </ul>

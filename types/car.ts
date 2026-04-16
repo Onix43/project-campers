@@ -13,29 +13,21 @@ export type Car = {
   consumption: string;
   transmission: CarTransmission;
   engine: CarEngine;
-  AC: boolean;
-  bathroom: boolean;
-  kitchen: boolean;
-  TV: boolean;
-  radio: boolean;
-  refrigerator: boolean;
-  microwave: boolean;
-  gas: boolean;
-  water: boolean;
-  gallery: CarGallery[];
-  reviews: CarReview[];
+  amenities: [CarAmenities];
+  coverImage: string;
+  totalReviews: number;
 };
 
-export type CarForm = "fullyIntegrated" | "alcove" | "panelTruck";
+export type CarForm = "integrated" | "alcove" | "panel_van" | "semi_integrated";
 export type CarTransmission = "automatic" | "manual";
-export type CarEngine = "diesel" | "petrol" | "hybrid";
+export type CarEngine = "diesel" | "petrol" | "hybrid" | "electric";
 
-export type CarReview = {
-  reviewer_name: string;
-  reviewer_rating: number;
-  comment: string;
-};
 export type CarGallery = {
+  id: string;
+  camperId: string;
   thumb: string;
   original: string;
+  order: number;
 };
+
+export type CarAmenities = string[];

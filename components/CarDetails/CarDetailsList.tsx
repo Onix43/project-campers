@@ -1,12 +1,12 @@
 "use client";
 
+import { CamperResponse } from "@/lib/api/campresApi";
 import css from "./CarDetails.module.css";
 
 import { getCarFeaturesArray } from "./getCarFeatures";
-import { Car } from "@/types/car";
 
-export default function CarDetailsList({ car }: { car: Car }) {
-  const features = getCarFeaturesArray(car).slice(0, 6);
+export default function CarDetailsList({ car }: { car: CamperResponse }) {
+  const features = getCarFeaturesArray(car);
 
   return (
     <div className={css.container}>

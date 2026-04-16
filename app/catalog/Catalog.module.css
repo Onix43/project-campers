@@ -21,8 +21,10 @@
 }
 .page {
   display: flex;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
   margin-top: 48px;
+}
+.detailsPage {
   justify-content: center;
 }

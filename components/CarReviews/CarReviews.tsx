@@ -1,23 +1,24 @@
-import { Car } from "@/types/car";
 import CarReviewForm from "./CarReviewForm";
 import css from "./CarReviews.module.css";
 import CarReviewItem from "./CarReviewItem";
+import { ReviewResponse } from "@/lib/api/campresApi";
 
 interface CarReviewsProps {
-  car: Car;
+  reviews: ReviewResponse[];
+  camperId: string;
 }
 
-export default function CarReviews({ car }: CarReviewsProps) {
+export default function CarReviews({ reviews, camperId }: CarReviewsProps) {
   return (
     <div className={css.reviewBlock}>
       <h2 className={css.reviewHeader}>Reviews</h2>
       <div className={css.bottomSection}>
         <ul className={css.reviewList}>
-          {car.reviews.map((review) => (
-            <CarReviewItem review={review} key={review.reviewer_name} />
+          {reviews.map((review) => (
+            <CarReviewItem review={review} key={review.id} />
           ))}
         </ul>
-        <CarReviewForm camperId={car.id} />
+        <CarReviewForm camperId={camperId} />
       </div>
     </div>
   );

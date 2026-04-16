@@ -1,6 +1,6 @@
 "use client";
 
-import { getCamperById } from "@/lib/api/campresApi";
+import { getCamperById, getReviewsById } from "@/lib/api/campresApi";
 import { useQuery } from "@tanstack/react-query";
 import css from "./CarDetaild.module.css";
 import { useParams } from "next/navigation";
@@ -17,16 +17,23 @@ export default function CarClientClient() {
   }
   const id = searchParams?.id as unknown as string;
 
-  const { data, isError } = useQuery({
+  const { data: camper } = useQuery({
     queryFn: () => getCamperById(id),
-    queryKey: ["campers", id],
+    queryKey: ["camper", id],
+    refetchOnMount: false,
+  });
+  const { data: reviews } = useQuery({
+    queryFn: () => getReviewsById(id),
+    queryKey: ["reviews", id],
     refetchOnMount: false,
   });
 
   return (
     <div className={css.grid}>
-      {data && <CarDetails car={data} />}
-      {data && <CarReviews car={data} />}
+      {camper && <CarDetails car={camper} />}
+      {camper && reviews && (
+        <CarReviews reviews={reviews} camperId={camper.id} />
+      )}
     </div>
   );
 }

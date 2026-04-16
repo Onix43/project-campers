@@ -1,28 +1,19 @@
-import { Car } from "@/types/car";
+import { CamperResponse } from "@/lib/api/campresApi";
 
-export const getCarFeaturesArray = (car: Car): string[] => {
-  const boolean: Record<string, string> = {
-    AC: "AC",
-    bathroom: "Bathroom",
-    kitchen: "Kitchen",
-    TV: "TV",
-    radio: "Radio",
-    refrigerator: "Refrigerator",
-    microwave: "Microwave",
-    gas: "Gas",
-    water: "Water",
-  };
+export const formatString = (str: string) =>
+  str
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
+export const getCarFeaturesArray = (car: CamperResponse): string[] => {
   const features: string[] = [
-    car.transmission.charAt(0).toUpperCase() + car.transmission.slice(1),
-    car.engine.charAt(0).toUpperCase() + car.engine.slice(1),
+    formatString(car.transmission),
+    formatString(car.engine),
+    formatString(car.form),
+    formatString(car.amenities[0]),
+    formatString(car.amenities[1]),
   ];
-
-  Object.keys(boolean).forEach((key) => {
-    if (car[key as keyof Car] === true) {
-      features.push(boolean[key]);
-    }
-  });
 
   return features;
 };
